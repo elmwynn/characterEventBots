@@ -1,0 +1,52 @@
+[
+    {
+        "rank": 1,
+        "title": "Novice Trick-Or-Treater",
+        "EXPrequired": 0
+    },
+    {
+        "rank": 2,
+        "title": "Candy Gardener",
+        "EXPrequired": 100
+    },
+    {
+        "rank": 3,
+        "title": "Royal Sugarusher",
+        "EXPrequired": 300
+    },
+    {
+        "rank": 4,
+        "title": "Wibele Appreciator",
+        "EXPrequired": 600
+    },
+    {
+        "rank": 5,
+        "title": "Candy Disintegrator",
+        "EXPrequired": 1000
+    },
+    {
+        "rank": 6,
+        "title": "Cycler of Trick-Or-Treating",
+        "EXPrequired": 1500
+    },
+    {
+        "rank": 7,
+        "title": "Twin Cities Candy Bandit",
+        "EXPrequired": 2000
+    },
+    {
+        "rank": 8,
+        "title": "212th Division of the Candy Force",
+        "EXPrequired": 2500
+    },
+    {
+        "rank": 9,
+        "title": "The Golden (Sugar) Beast",
+        "EXPrequired": 3000
+    },
+    {
+        "rank": 10,
+        "title": "The Great (Candy) Devourer",
+        "EXPrequired": 3000
+    }
+]

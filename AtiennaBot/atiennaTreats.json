@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Atienna",
+        "treat": "White Chocoalte Bar",
+        "quote": "Oh dear. I'm quite unprepared. Here. I hope you enjoy.",
+        "points": 5
+    },
+    {
+        "from": "Atienna",
+        "treat": "Milk Chocolate Bar",
+        "quote": "I hope this isn't too light for you.",
+        "points": 10
+    },
+    {
+
+        "from": "Atienna",
+        "treat": "Semisweet Chocolate Bar",
+        "quote": "I hope you enjoy chocolate. This goes quite well in cookies too.",
+        "points": 15
+
+    },
+    {
+        "from": "Atienna",
+        "treat": "Bittersweet Chocolate Bar",
+        "quote": "Trick or treat. Things that are bittersweet are quite addicting, don't you think? Even sweets.",
+        "points": 50
+    },
+    {
+        "from": "Atienna",
+        "treat": "Bitter Chocolate Bar",
+        "quote": "Perhaps this can balance out all of the sweetness?",
+        "points": 65
+    },
+    {
+        "from": "Atienna",
+        "treat": "Pure Cocoa Nibs",
+        "quote":  "Sometimes you have to try something in its initial state to truly appreciate the way it ends up at the end. Don't you think?",
+        "points": 200
+    }
+]

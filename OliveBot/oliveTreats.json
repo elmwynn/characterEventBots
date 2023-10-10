@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Olive",
+        "treat": "Strawberry Peppermint",
+        "quote": "This is for you... and for me. Nope. I don't mean anything by it!",
+        "points": 25
+    },
+    {
+        "from": "Olive",
+        "treat": "Strawberry Bon Bons",
+        "quote": "Is anything that isn't strawberry-flavored worth eating? You're welcome.",
+        "points": 30
+    },
+    {
+
+        "from": "Olive",
+        "treat": "Strawberry Nerds Box",
+        "quote": "Here you go. Well, would you look at that? The perfect match.",
+        "points": 40
+
+    },
+    {
+        "from": "Olive",
+        "treat": "Strawberry Milk",
+        "quote": "What? You've never received milk from trick-or-treatin before? Well... Well, how old are you exactly? Maybe it's been a while since you last went trick-or-treating? I'm kidding. You're cool and hip. Now take the milk!",
+        "points": 40
+    },
+    {
+        "from": "Olive",
+        "treat": "Espresso Martini Truffles Candy Cube",
+        "quote": "There's no alcohol in this. I promise.",
+        "points": 55
+    },
+    {
+        "from": "Olive",
+        "treat": "Strawberry Mochi Donut",
+        "quote":  "Okay, in all seriousness, this is probably the best you're going to get from me. You're welcome. Now where's *my* candy?",
+        "points": 100
+    }
+]

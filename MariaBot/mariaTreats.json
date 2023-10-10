@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Maria",
+        "treat": "Candied Tamarind",
+        "quote": "Trick-or-treat! Here you go! It's a bit sour, yes? But it is also very good, no?",
+        "points": 10
+    },
+    {
+        "from": "Maria",
+        "treat": "Chocolate-covered Coffee Beans",
+        "quote": "Trick-or-treat! This is made with the best chocolate, yes? And the best coffee and by the best baker. Only the best for you, no?",
+        "points": 15
+    },
+    {
+
+        "from": "Maria",
+        "treat": "Watermelon Chili Gummies",
+        "quote": "Trick-or-treat! These are quite interesting, no? It is good to experience different things to know what you like and what you don't like, yes?",
+        "points": 35
+
+    },
+    {
+        "from": "Maria",
+        "treat": "Mini Donuts",
+        "quote": "Trick or treat, dear! I chose your favorite flavors!",
+        "points": 60
+    },
+    {
+        "from": "Maria",
+        "treat": "Chocolate Bites with Red Wine Liqueur",
+        "quote": "This is a bit more 'adult', no? Here you go. Trick-or-treat!",
+        "points": 65
+    },
+    {
+        "from": "Maria",
+        "treat": "Mango Pop",
+        "quote":  "Now, this is one of my favorites, yes? A true treasure, no? Happy Halloween!",
+        "points": 200
+    }
+]

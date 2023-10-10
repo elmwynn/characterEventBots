@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Cadence",
+        "treat": "Candy Gems",
+        "quote": "You're the cutest thing. Here you go, dear.",
+        "points": 5
+    },
+    {
+        "from": "Cadence",
+        "treat": "Golden Chocolate Bars",
+        "quote": "These are the best in the district!",
+        "points": 20
+    },
+    {
+
+        "from": "Cadence",
+        "treat": "Candied Hearts",
+        "quote": "Aren't they divine? Promise me this will be the only heart you'll break.",
+        "points": 25
+
+    },
+    {
+        "from": "Cadence",
+        "treat": "Tiramisu Bites",
+        "quote": "Don't eat too many now. This has quite a lot of caffiene, dear",
+        "points": 30
+    },
+    {
+        "from": "Cadence",
+        "treat": "Espresso Martini Truffles Candy Cube",
+        "quote": "I got these from Werner. Far better than anything you can get at a grocery store.",
+        "points": 75
+    },
+    {
+        "from": "Cadence",
+        "treat": "Golden Chocolate Coins",
+        "quote":  "It's sweet like you, dear. Enjoy.",
+        "points": 80
+    }
+]

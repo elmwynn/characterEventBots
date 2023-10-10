@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Jericho",
+        "treat": "Vegan Delights",
+        "quote": "You need to pay attention to what you put in your body. Here. These are good for you.",
+        "points": 5
+    },
+    {
+        "from": "Jericho",
+        "treat": "Vegan Caramel Bites",
+        "quote": "My siblings helped me make these. They're vegan and all natural. Addicting too.",
+        "points": 10
+    },
+    {
+
+        "from": "Jericho",
+        "treat": "Swedish Fish",
+        "quote": "It's not to give into consumerism, but it's the holidays so I suppose it's alright. Here.",
+        "points": 20
+
+    },
+    {
+        "from": "Jericho",
+        "treat": "Sour Patch Kids",
+        "quote": "Trick-or-treat! Sour-sweet-gone. Just like our futures if we don't be mindful of how we're handling those at the gates. Here-take this information packet with the candy too.",
+        "points": 30
+    },
+    {
+        "from": "Jericho",
+        "treat": "Vegan Chocolate",
+        "quote": "I got these from the Wibele. They're quite good. Anyways, what are you dressing up as for Halloween...?",
+        "points": 40
+    },
+    {
+        "from": "Jericho",
+        "treat": "Skittles",
+        "quote":  "These are one of my favorites. They're not exactly healthy, but I'm sure you can appreciate how diverse and colorful each little candy is. The perfect candy to represent community. And they're vegan. Here.",
+        "points": 200
+    }
+]

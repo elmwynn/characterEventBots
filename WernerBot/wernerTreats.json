@@ -1,0 +1,40 @@
+[
+    {
+        "from": "Werner",
+        "treat": "Wibeles",
+        "quote": "Hope you like them! I made them myself! Aren't they cute? Hehe.",
+        "points": 25
+    },
+    {
+        "from": "Werner",
+        "treat": "Cat-shaped Candies",
+        "quote": "Hehe. Isn't it cute? Hope you like them! They're Kaiser-shaped!",
+        "points": 45
+    },
+    {
+
+        "from": "Werner",
+        "treat": "Butterscotch Melts",
+        "quote": "Here you go, buttercup!",
+        "points": 60
+
+    },
+    {
+        "from": "Werner",
+        "treat": "Schokolade (Bitter)",
+        "quote": "Trick or treat! You know, I read somewhere that chocolate is really good for you, so have lots! I made it myself!",
+        "points": 70
+    },
+    {
+        "from": "Werner",
+        "treat": "Espresso Martini Truffles Candy Cube",
+        "quote": "This is one of my special orders! Caddy says they're super fancy. They're a lil' boozy for a fun time!",
+        "points": 80
+    },
+    {
+        "from": "Werner",
+        "treat": "Schokolade (Milk)",
+        "quote":  "Doesn't eating milk chocolate just make you feel all warm inside? It's even better if you share it with friends!",
+        "points": 150
+    }
+]
