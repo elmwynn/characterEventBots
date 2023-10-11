@@ -141,7 +141,7 @@ const halloweenBot = () =>{
     
         .addFields(
             { name: 'COMMANDS', value: ' '},
-            { name: '/trickOrTreat firstName', value: 'You can ask SC characters for candy 3x a day!' },
+            { name: '/trickOrTreat firstName', value: 'You can ask SC characters for candy 3x a day! Resets at 8:30 EST' },
             { name: '/steal userName', value: 'You have the opportunity to steal the latest candy and points from a fellow trick-or-treater'},
             { name: '/checkCandyStats', value: 'See a summary of your trick-or-treating'},
             { name: '/checkTreatBag #', value: 'Rummage through your sugar collection'},
