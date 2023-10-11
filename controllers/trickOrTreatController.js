@@ -87,6 +87,30 @@ const giveStolenCandy = async(stealerID, stolenCandy) => {
 
 }
 
+const reAdjust = async() => {
+    const result = await HalloweenPlayer.find();
+    for(let i = 0; i < result.length; i++){
+        let trueLastTreat;
+        let truePoints = 0
+        if(result[i].candyCollection.length != 0){
+            const length = result[i].candyCollection.length;
+            trueLastTreat= result[i].candyCollection[length-1];
+            for(let j = 0; j < length; j++)
+                truePoints += result[i].candyCollection[j].points;
+        }
+        await HalloweenPlayer.findOneAndUpdate(
+            {playerId: result[i].playerId},
+            {
+                $set: {
+                    latestTreat: trueLastTreat,
+                    points: truePoints
+                }
+            }
+        )
+       
+    }
+}
+
 const removeCandy = async(victimUsername, stolenCandy) => {
     const result = await HalloweenPlayer.find(
         {username: victimUsername}
@@ -228,7 +252,7 @@ const getMyStats = async(userID) => {
     });
     const displayStats = new EmbedBuilder()
     .setColor(0xe67e22)
-    .setTitle(`${result[0].username}'s Treat Stats`)
+    .setTitle(`${result[0].username}'s Candy Stats`)
     .addFields(
         {name: 'Rank Title', value: `${result[0].title}`},
     )
@@ -276,7 +300,7 @@ const checkRanking = async(userID) => {
         playerId: userID
     })
     for(let i = 0; i < rankData.ranks.length; i++){
-        if(rankData.ranks[i].rank > result[0].rankNumber && rankData.ranks[i].EXPrequired <= result[0].points)
+        if(rankData.ranks[i].rank > result[0].rankNumber && rankData.ranks[i].EXPrequired <= result[0].points && result[0].title != rankData.ranks[i].title)
             return rankData.ranks[i];
     }
     return null;
@@ -312,6 +336,7 @@ module.exports = {
     decrementSteal,
     checkTrickOrTreatCount,
     checkRanking,
-    checkStealCount
+    checkStealCount,
+    reAdjust
 
 }

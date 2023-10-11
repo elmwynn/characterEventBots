@@ -2,9 +2,7 @@ require('dotenv').config();
 const halloween = require('../controllers/trickOrTreatController');
 const character = require('../controllers/characterControllers')
 const {Client, GatewayIntentBits, EmbedBuilder} = require('discord.js');
-const mongoose = require('mongoose');
-const Halloweenplayer = require('../models/Halloweenplayer');
-//const connectDB = require('./config/dbConn');
+
 
 const halloweenBot = () =>{
     const client = new Client({
@@ -28,6 +26,10 @@ const halloweenBot = () =>{
             if(message.content.startsWith('/resetCount')){
                 await halloween.resetCounts();
                 message.channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]})
+            }
+            if(message.content.startsWith('/readjust')){
+                await halloween.reAdjust();
+                message.channel.send({embeds: [halloween.getSimpleEmbed('Candies have been readjusted!')]})
             }
         }
         if(message.content.startsWith('/trickOrTreat')){
@@ -72,9 +74,12 @@ const halloweenBot = () =>{
                     message.channel.send({embeds: [halloween.getSimpleEmbed(`YOU CANNOT STEAL FROM YOURSELF!`)]})
                 }
                 else if(await halloween.isUsernameValid(potentialRobbed)){
+                    const announceSteal = halloween.getSimpleEmbed(`${name} has attempted a steal from ${potentialRobbed}! Dastardly!`)
+                   message.channel.send({embeds: [announceSteal]});
                     if(halloween.isStealSuccessful()){
                         const takenCandy = await halloween.stealCandy(potentialRobbed);
                         await halloween.removeCandy(potentialRobbed, takenCandy);
+                        await character.sleep(1000);
                         await halloween.giveStolenCandy(user, takenCandy);
                         message.channel.send({embeds: [await halloween.getRecievedTreat(user, potentialRobbed)]})
                         await halloween.decrementSteal(user);
