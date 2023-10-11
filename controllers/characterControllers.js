@@ -7,7 +7,6 @@ const createCharacter = async(array)=> {
         characterName: array[1],
         
     })
-    console.log(array[0] + " " + array[1]);
     return array[1];
 }
 
@@ -22,11 +21,14 @@ const createCharacter = async(array)=> {
 
 }
 
+
 const getMessage = async(Name, command)=>{
     const result = await HalloweenPlayer.find({
         playerId: userID
     });
 }*/
+
+
 
 const updateSpecialMessage = async(name, message) => {
     await Character.findOneAndUpdate(

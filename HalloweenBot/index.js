@@ -2,7 +2,7 @@ require('dotenv').config();
 const halloween = require('../controllers/trickOrTreatController');
 const character = require('../controllers/characterControllers')
 const {Client, GatewayIntentBits, EmbedBuilder} = require('discord.js');
-
+const cron = require('cron');
 
 const halloweenBot = () =>{
     const client = new Client({
@@ -20,6 +20,12 @@ const halloweenBot = () =>{
     client.on('messageCreate', async (message) => {
         const user = message.author.id;
         const name = message.author.username;
+        const resetTheCount = new cron.CronJob('00 00 08 * * *', async()=>{
+            await halloween.resetCounts();
+            const channel = client.channels.cache.get('909800517583143062');
+            channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]});
+        });
+        resetTheCount.start();
         if(message.author.bot)
             return;
         if(name == 'elmwynn'){
@@ -53,7 +59,6 @@ const halloweenBot = () =>{
                     await character.sleep(1000);
                     message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
                     const rankUp = await halloween.checkRanking(user);
-                    console.log(rankUp);
                     if(rankUp !== null){
                         halloween.rankUp(user, rankUp);
                         const rankUpEmbed = halloween.getSimpleEmbed(`${name} has ranked up to ${rankUp.title}!`)
