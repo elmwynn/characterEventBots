@@ -20,7 +20,7 @@ const halloweenBot = () =>{
     client.on('messageCreate', async (message) => {
         const user = message.author.id;
         const name = message.author.username;
-        const resetTheCount = new cron.CronJob('00 00 08 * * *', async()=>{
+        const resetTheCount = new cron.CronJob('00 30 08 * * *', async()=>{
             await halloween.resetCounts();
             const channel = client.channels.cache.get('909800517583143062');
             channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]});
