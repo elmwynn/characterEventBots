@@ -1,7 +1,6 @@
 {
   "name": "characterbots",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +15,15 @@
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.0",
     "nodemon": "^3.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmwynn/characterEventBots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elmwynn/characterEventBots/issues"
+  },
+  "homepage": "https://github.com/elmwynn/characterEventBots#readme",
+  "description": ""
 }

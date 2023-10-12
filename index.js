@@ -1,7 +1,7 @@
 require('dotenv').config();
-const {Client, GatewayIntentBits, EmbedBuilder} = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const mongoose = require('mongoose');
-//const connectDB = require('./config/dbConn');
+const keep_alive = require('./keep_alive.js');
 const character = require('./controllers/characterControllers');
 const oliveBotFunc = require('./OliveBot/index');
 const cadenceBotFunc = require('./CadenceBot/index');
@@ -24,6 +24,6 @@ jerichoBotFunc.jerichoBot();
 
 halloweenBotFunc.halloweenBot();
 
-mongoose.connection.once('open',() => {
-    console.log('Connected to MongoDB');
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB');
 });
