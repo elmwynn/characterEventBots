@@ -119,7 +119,7 @@ const removeCandy = async(victimUsername, stolenCandy) => {
         
     }
     const candies = result[0].candyCollection;
-    const latestCandy = candies[candies.length-1]
+    const latestCandy = candies[candies.length-2];
     await HalloweenPlayer.findOneAndUpdate(
         {username: victimUsername},
         {
