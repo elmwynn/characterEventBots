@@ -280,6 +280,16 @@ const getRecievedTreat = async(userID, givenOrStolen) => {
     return latestCandyEmbedded;
 }
 
+const checkIfValid = async(userID, name) =>{
+    const result = await HalloweenPlayer.find({
+        playerId: userID
+    });
+    const recentCandy = result[0].latestTreat;
+    if(recentCandy.from != name)
+        return false;
+    return true;
+}
+
 const rankUp = async(userID, ranking) => {
     await HalloweenPlayer.findOneAndUpdate(
         {playerId: userID},
@@ -391,6 +401,7 @@ const resetCounts = async() => {
 module.exports = {
     playerExists,
     createPlayer,
+    checkIfValid,
     getRandomTreat,
     allocateTreat,
     getRecievedTreat,

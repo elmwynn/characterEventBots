@@ -65,12 +65,18 @@ const halloweenBot = () =>{
                 }
                 else{
                     await character.sleep(1000);
-                    message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
-                    const rankUp = await halloween.checkRanking(user);
-                    if(rankUp !== null){
-                        halloween.rankUp(user, rankUp);
-                        const rankUpEmbed = halloween.getSimpleEmbed(`${name} has ranked up to ${rankUp.title}!`)
-                        message.channel.send({embeds:[rankUpEmbed]})
+                    const validReq = await halloween.checkIfValid(user, char);
+                    if(validReq){
+                        message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
+                        const rankUp = await halloween.checkRanking(user);
+                        if(rankUp !== null){
+                            halloween.rankUp(user, rankUp);
+                            const rankUpEmbed = halloween.getSimpleEmbed(`${name} has ranked up to ${rankUp.title}!`)
+                            message.channel.send({embeds:[rankUpEmbed]})
+                        }
+                    }
+                    else{
+                        message.channel.send({embeds:[halloween.getSimpleEmbed(`Either ${char} isn't up right now or something went wrong!`)]})
                     }
                 }
             }
