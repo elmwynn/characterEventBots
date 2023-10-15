@@ -4,6 +4,7 @@ const character = require('../controllers/characterControllers')
 const {Client, GatewayIntentBits, EmbedBuilder} = require('discord.js');
 const cron = require('cron');
 
+
 const halloweenBot = () =>{
     const client = new Client({
         intents: [
@@ -29,13 +30,20 @@ const halloweenBot = () =>{
         if(message.author.bot)
             return;
         if(name == 'elmwynn'){
+            const channel = client.channels.cache.get('909800517583143062');
             if(message.content.startsWith('/resetCount')){
                 await halloween.resetCounts();
-                message.channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]})
+                const channel = client.channels.cache.get('909800517583143062');
+                message.channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]});
+                channel.send({embeds: [halloween.getSimpleEmbed('Counts have been reset!')]});
+               
             }
             if(message.content.startsWith('/readjust')){
                 await halloween.reAdjust();
                 message.channel.send({embeds: [halloween.getSimpleEmbed('Candies have been readjusted!')]})
+            }
+            if(message.content.startsWith('/newArrival')){
+                channel.send({embeds: [halloween.getSimpleEmbed('A special guest has arrived!')]})
             }
         }
         if(message.content.startsWith('/trickOrTreat')){
@@ -45,7 +53,7 @@ const halloweenBot = () =>{
                 message.channel.send({embeds: [createPlayerEmbed]});
             }
             else{
-                const characters = ['Olive', 'Cadence', 'Werner', 'Atienna', 'Maria', 'Jericho'];
+                const characters = ['Olive', 'Cadence', 'Werner', 'Atienna', 'Maria', 'Jericho', 'Francis'];
                 const char = message.content.substring(14);
                 if(!characters.includes(char)){
                     const incorrectCandyGiver = halloween.getSimpleEmbed(`Who is ${char}?`);
@@ -106,6 +114,14 @@ const halloweenBot = () =>{
             }
             
         }
+        else if(message.content.startsWith('/checkPotentialTreats')){
+            const request = message.content.substring(22);
+            if(request[0] >= '0' && request[0] <= '9'){
+                const number = Number(request);
+                const treatList = await halloween.getTreatList(number);
+                message.channel.send({embeds: [treatList]});
+            }
+        }
         else if(message.content.startsWith('/checkLeaderBoard')){
             
             const leaderBoardEmbed = await halloween.getLeaderBoard();
@@ -145,9 +161,10 @@ const halloweenBot = () =>{
             { name: '/steal userName', value: 'You have the opportunity to steal the latest candy and points from a fellow trick-or-treater'},
             { name: '/checkCandyStats', value: 'See a summary of your trick-or-treating'},
             { name: '/checkTreatBag #', value: 'Rummage through your sugar collection'},
-            { name: '/checkLeaderBoard', value: 'Check who is the top trick-or-treater!'},
+            { name: '/checkPotentialTreats #', value: 'Check the possible treats you can get!'},
             { name: 'General Info', value: ' '},
             { name: 'Candy', value: 'Each character bot gives out certain candies worth certain points.' },
+            { name: 'Special Visitors', value: 'Special visitors will occasionally visit the server. They give out candies worth a lot of points!'},
             { name: 'Rank', value: 'Your trick-or-treating rank delegated by the quality and number of candies you\'ve collected'},
             { name: 'trickOrTreat', value: 'The basic command to ask a character for candy. You can only do this 3x a day, so keep an eye on who you\'re asking!'},
             { name: 'steal', value: 'Get a 30% chance to steal the last received candy from a trick-or-treater! Are you heartless, enough?'},
