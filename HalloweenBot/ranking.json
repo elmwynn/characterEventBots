@@ -27,26 +27,26 @@
     {
         "rank": 6,
         "title": "Cycler of Trick-Or-Treating",
-        "EXPrequired": 1500
+        "EXPrequired": 2000
     },
     {
         "rank": 7,
         "title": "Twin Cities Candy Bandit",
-        "EXPrequired": 2000
+        "EXPrequired": 5000
     },
     {
         "rank": 8,
         "title": "212th Division of the Candy Force",
-        "EXPrequired": 3000
+        "EXPrequired": 8000
     },
     {
         "rank": 9,
         "title": "The Golden (Sugar) Beast",
-        "EXPrequired": 5000
+        "EXPrequired": 10000
     },
     {
         "rank": 10,
         "title": "The Great (Candy) Devourer",
-        "EXPrequired": 8000
+        "EXPrequired": 15000
     }
 ]
