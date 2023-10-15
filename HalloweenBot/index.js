@@ -66,7 +66,7 @@ const halloweenBot = () =>{
                 else{
                     await character.sleep(1000);
                     const validReq = await halloween.checkIfValid(user, char);
-                    if(validReq && (char== 'Francis' && client.users.fetch(1162798195542343831).presence.status == 'online')){
+                    if(validReq /*&& (char== 'Francis' && client.users.fetch(1162798195542343831).presence.status == 'online')*/){
                         message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
                         const rankUp = await halloween.checkRanking(user);
                         if(rankUp !== null){
