@@ -53,7 +53,7 @@ const halloweenBot = () =>{
                 message.channel.send({embeds: [createPlayerEmbed]});
             }
             else{
-                const characters = ['Olive', 'Cadence', 'Werner', 'Atienna', 'Maria', 'Jericho'];
+                const characters = ['Olive', 'Cadence', 'Werner', 'Atienna', 'Maria', 'Jericho', 'Francis'];
                 const char = message.content.substring(14);
                 if(!characters.includes(char)){
                     const incorrectCandyGiver = halloween.getSimpleEmbed(`Who is ${char}?`);
@@ -69,15 +69,7 @@ const halloweenBot = () =>{
                 else{
                     await character.sleep(1000);
                     const validReq = await halloween.checkIfValid(user, char);
-
-                    if(validReq){
-                                 client.users.fetch('1162798195542343831').then(user => {
-                                    console.log(user.presence);
-                                    // Will return a boolean
-                                 })
-=======
                     if(validReq && (char== 'Francis' && !client.users.fetch(1162798195542343831).presence)){
->>>>>>> c415df89f3944c6cf340acbaafcd185137b104c7
                         message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
                         const rankUp = await halloween.checkRanking(user);
                         if(rankUp !== null){
