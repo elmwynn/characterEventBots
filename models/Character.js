@@ -14,6 +14,10 @@ const characterSchema = new Schema({
     characterQuotes: [String],
     specialQuote: {
         type: String
+    },
+    available: {
+        type: Boolean,
+        default: true
     }
 });
 

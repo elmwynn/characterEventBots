@@ -59,6 +59,9 @@ const halloweenBot = () =>{
                     const incorrectCandyGiver = halloween.getSimpleEmbed(`Who is ${char}?`);
                     message.channel.send({embeds: [incorrectCandyGiver]});
                 }
+                else if(!await character.checkIfAwake(char)){
+                    message.channel.send({embeds: [halloween.getSimpleEmbed(`${char} is unavailable!`)]})
+                }
                 else if(!await halloween.checkTrickOrTreatCount(user)){
                     const noMoreCandy = halloween.getSimpleEmbed(`${name}, YOUR DAILY CANDY LIMIT HAS BEEN REACHED. CHECK YOUR BLOOD SUGAR!`);
                     message.channel.send({embeds: [noMoreCandy]});
@@ -66,7 +69,7 @@ const halloweenBot = () =>{
                 else{
                     await character.sleep(1000);
                     const validReq = await halloween.checkIfValid(user, char);
-                    if(validReq /*&& (char== 'Francis' && client.users.fetch(1162798195542343831).presence.status == 'online')*/){
+                    if(validReq && (char== 'Francis' && !client.users.fetch(1162798195542343831).presence)){
                         message.channel.send({embeds: [await halloween.getRecievedTreat(user, "given")]});
                         const rankUp = await halloween.checkRanking(user);
                         if(rankUp !== null){
