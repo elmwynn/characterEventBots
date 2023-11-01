@@ -22,13 +22,9 @@ mariaBotFunc.mariaBot();
 atiennaBotFunc.atiennaBot();
 jerichoBotFunc.jerichoBot();
 
-<<<<<<< HEAD
-halloweenBotFunc.halloweenBot();
+
+
 
 mongoose.connection.once('open', () => {
-  console.log('Connected to MongoDB');
-=======
-mongoose.connection.once('open',() => {
-    console.log('Connected to MongoDB');
->>>>>>> c415df89f3944c6cf340acbaafcd185137b104c7
-});
+  console.log('Connected to MongoDB')
+})

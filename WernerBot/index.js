@@ -52,7 +52,7 @@ const wernerBot = () =>{
             const name = message.author.username;
             message.channel.send('I think... the season\'s over...');
             message.channel.send(`But I'll always have treats for you, ${name}! Here!`);
-            message.channel.send({embeds: halloween.getSimpleEmbed('You received a milk chocolate bar!')})
+            message.channel.send({embeds: [halloween.getSimpleEmbed(`${name} received a milk chocolate bar!`)]})
         }
         if(message.content.startsWith('/chapterUpdate')){
             const messageReq = await character.getSpecialMessage('Werner');

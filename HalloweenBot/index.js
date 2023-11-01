@@ -69,7 +69,7 @@ const halloweenBot = () =>{
                 else{
                     await character.sleep(1000);
                     const validReq = await halloween.checkIfValid(user, char);
-<<<<<<< HEAD
+
                     if(validReq){
                                  client.users.fetch('1162798195542343831').then(user => {
                                     console.log(user.presence);
