@@ -36,7 +36,7 @@ const atiennaBot = () =>{
             }
 
         }
-        else if(message.content.startsWith('/trickOrTreat Atienna')){
+        if(message.content.startsWith('/trickOrTreat Atienna')){
             const user = message.author.id;
             message.channel.send(`Oh dear. Don't you think the season has passed, ${user}?`)
         }

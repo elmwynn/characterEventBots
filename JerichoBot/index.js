@@ -27,7 +27,7 @@ const jerichoBot = () =>{
         const user = message.author.id;
         if(message.author.bot)
             return;
-        else if(message.author.username == 'elmwynn'){
+        if(message.author.username == 'elmwynn'){
             if(message.content.startsWith('/updateJericho')){
                 const request = message.content.substring(15);
                 await character.updateSpecialMessage('Jericho', request);

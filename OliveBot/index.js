@@ -40,7 +40,7 @@ const oliveBot = () =>{
             }
         }
     
-        else if(message.content.startsWith('/trickOrTreat Olive')){
+        if(message.content.startsWith('/trickOrTreat Olive')){
             const user = message.author.id;
             message.channel.send('Pfft.')
         }

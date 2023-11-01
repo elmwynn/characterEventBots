@@ -42,7 +42,7 @@ const mariaBot = () =>{
                 message.channel.send("Good morning!");
             }
         }
-        else if(message.content.startsWith('/trickOrTreat Maria')){
+        if(message.content.startsWith('/trickOrTreat Maria')){
             const user = message.author.id;
             message.channel.send("Ay! It looks like all of the candy has been pillaged! Next time, yes?")
         }

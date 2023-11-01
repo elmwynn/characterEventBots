@@ -39,7 +39,7 @@ const cadenceBot = () =>{
                 message.channel.send("Good morning, dear.");
             }
         }
-        else if(message.content.startsWith('/trickOrTreat Cadence')){
+        if(message.content.startsWith('/trickOrTreat Cadence')){
            message.channel.send("Oh, honey, I don't have anymore candy for you...")
         }
         
