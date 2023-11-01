@@ -25,6 +25,7 @@ const jerichoBot = () =>{
 
     client.on('messageCreate', async (message) => { 
         const user = message.author.id;
+        const name = message.author.username;
         if(message.author.bot)
             return;
         if(message.author.username == 'elmwynn'){
@@ -43,8 +44,9 @@ const jerichoBot = () =>{
             }
         }
 
-        else if(message.content.startsWith('/trickOrTreat Jericho')){
+        if(message.content.startsWith('/trickOrTreat Jericho')){
             message.channel.send('Since I have no more candy left, how about I give you one of ELPIS\'s informational packets instead? Now the education in that is the real treat.')
+          message.channel.send({embeds: [halloween.getSimpleEmbed(`${name} has received an ELPIS informational packet!`)]});
         }
 
         else if(message.content.startsWith('/artUpdate')){
