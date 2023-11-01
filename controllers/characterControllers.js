@@ -47,9 +47,29 @@ const getSpecialMessage = async(name) => {
     return result[0].specialQuote;
 }
 
+const wakeOrSleep = async(booleanValue, name) => {
+    await Character.findOneAndUpdate(
+        {characterName: name},
+        //find character by name
+        {
+            $set: {available: booleanValue},
+        },
+    );
+}
+
+const checkIfAwake = async(name) =>{
+    const result = await Character.find(
+        {characterName: name}
+    )
+    return result[0].available;
+
+}
+
 module.exports = {
     sleep,
     createCharacter,
     updateSpecialMessage,
-    getSpecialMessage
+    getSpecialMessage,
+    wakeOrSleep,
+    checkIfAwake
 }

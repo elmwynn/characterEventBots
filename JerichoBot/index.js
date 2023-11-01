@@ -27,28 +27,27 @@ const jerichoBot = () =>{
         const user = message.author.id;
         if(message.author.bot)
             return;
-        if(message.content.startsWith('/trickOrTreat Jericho')){
-         
-            if(!await halloween.playerExists(user)){
-                message.channel.send("Hm... Let's get you settled first.")
+        else if(message.author.username == 'elmwynn'){
+            if(message.content.startsWith('/updateJericho')){
+                const request = message.content.substring(15);
+                await character.updateSpecialMessage('Jericho', request);
+                message.channel.send("I'm certainly happy to help.");
             }
-            else {
-                if(!await halloween.checkTrickOrTreatCount(user)){
-                    message.channel.send("I think that's enough for today.")
+            else if(message.content.startsWith('/sleepJericho')){
+                await character.wakeOrSleep(false, "Jericho");
+                message.channel.send("I understand. Good night.")
             }
-            else{
-                const treat = jerichoTreats.treats[halloween.getRandomTreat()];
-                await halloween.allocateTreat(user, treat);
-                message.channel.send(treat.quote);
+            else if(message.content.startsWith('/wakeJericho')){
+                await character.wakeOrSleep(true, "Jericho");
+                message.channel.send("Another day.");
             }
         }
+
+        else if(message.content.startsWith('/trickOrTreat Jericho')){
+            message.channel.send('Since I have no more candy left, how about I give you one of ELPIS\'s informational packets instead? Now the education in that is the real treat.')
         }
-        if(message.content.startsWith('/updateJericho')){
-            const request = message.content.substring(15);
-            await character.updateSpecialMessage('Jericho', request);
-            message.channel.send("I'm certainly happy to help.");
-        }
-        if(message.content.startsWith('/artUpdate')){
+
+        else if(message.content.startsWith('/artUpdate')){
             const messageReq = await character.getSpecialMessage('Jericho');
             message.channel.send(messageReq);
         }

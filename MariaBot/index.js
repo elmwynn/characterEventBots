@@ -27,26 +27,24 @@ const mariaBot = () =>{
     client.on('messageCreate', async (message) => { 
         if(message.author.bot)
             return;
-        if(message.content.startsWith('/trickOrTreat Maria')){
+        if(message.author.username == 'elmwynn'){
+            if(message.content.startsWith('/updateMaria')){
+                const request = message.content.substring(13);
+                await character.updateSpecialMessage('Maria', request);
+                message.channel.send('Ay! You are the captain now, yes? All clear!');
+            }
+            else if(message.content.startsWith('/sleepMaria')){
+                await character.wakeOrSleep(false, "Maria");
+                message.channel.send("Good night to you too!")
+            }
+            else if(message.content.startsWith('/wakeMaria')){
+                await character.wakeOrSleep(true, "Maria");
+                message.channel.send("Good morning!");
+            }
+        }
+        else if(message.content.startsWith('/trickOrTreat Maria')){
             const user = message.author.id;
-            if(!await halloween.playerExists(user)){
-                message.channel.send("Ay! Dear! Let's get you settled first, yes?")
-            }
-            else {
-                if(!await halloween.checkTrickOrTreatCount(user)){
-                    message.channel.send("Let us stop for today, yes? Restraint makes things more enjoyable, no?");
-            }
-            else{
-                const treat = mariaTreat.treats[halloween.getRandomTreat()];
-                await halloween.allocateTreat(user, treat);
-                message.channel.send(treat.quote);
-            }
-        }
-        }
-        if(message.content.startsWith('/updateMaria')){
-            const request = message.content.substring(13);
-            await character.updateSpecialMessage('Maria', request);
-            message.channel.send('Ay! You are the captain now, yes? All clear!');
+            message.channel.send("Ay! It looks like all of the candy has been pillaged! Next time, yes?")
         }
     });
     
