@@ -10,7 +10,7 @@ const mariaBotFunc = require('./MariaBot/index');
 const atiennaBotFunc = require('./AtiennaBot/index');
 const jerichoBotFunc = require('./JerichoBot/index');
 
-//const halloweenBotFunc = require('./HalloweenBot/index')
+const halloweenBotFunc = require('./HalloweenBot/index')
 const connectDB = require('./config/dbConn');
 
 connectDB.connectDB();
@@ -21,7 +21,7 @@ wernerBotFunc.wernerBot();
 mariaBotFunc.mariaBot();
 atiennaBotFunc.atiennaBot();
 jerichoBotFunc.jerichoBot();
-
+halloweenBotFunc.halloweenBot();
 
 
 

@@ -1,53 +1,61 @@
 require('dotenv').config();
-const {Client, GatewayIntentBits, EmbedBuilder} = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const mongoose = require('mongoose');
 const character = require('../controllers/characterControllers');
 const halloween = require('../controllers/trickOrTreatController');
 const connectDB = require('../config/dbConn');
 const mariaTreat = {
     treats: require('./mariaTreats.json'),
-    setTreats: function (mariaTreat){
+    setTreats: function(mariaTreat) {
         this.treats = mariaTreat;
     }
 };
 
-const mariaBot = () =>{
+const mariaBot = () => {
     //connectDB.connectDB();
     const client = new Client({
         intents: [
-           GatewayIntentBits.Guilds, 
-           GatewayIntentBits.GuildMessages,
-           GatewayIntentBits.MessageContent
-       ] 
+            GatewayIntentBits.Guilds,
+            GatewayIntentBits.GuildMessages,
+            GatewayIntentBits.MessageContent
+        ]
     });
     client.on('ready', () => {
         //inform of successful ready connection
         console.log(`Logged in as ${client.user.tag}`);
+
     });
-    client.on('messageCreate', async (message) => { 
-        if(message.author.bot)
+    client.on('messageCreate', async (message) => {
+        if (message.author.bot)
             return;
-        if(message.author.username == 'elmwynn'){
-            if(message.content.startsWith('/updateMaria')){
-                const request = message.content.substring(13);
-                await character.updateSpecialMessage('Maria', request);
-                message.channel.send('Ay! You are the captain now, yes? All clear!');
+        if (message.content.startsWith('/trickOrTreat Maria')) {
+            try {
+                const user = message.author.id;
+                if (!await halloween.playerExists(user)) {
+                    message.channel.send("Ay! Dear! Let's get you settled first, yes?")
+                }
+                else {
+                    if (!await halloween.checkTrickOrTreatCount(user)) {
+                        message.channel.send("Let us stop for today, yes? Restraint makes things more enjoyable, no?");
+                    }
+                    else {
+                        const treat = mariaTreat.treats[halloween.getRandomTreat()];
+                        await halloween.allocateTreat(user, treat);
+                        message.channel.send(treat.quote);
+                    }
+                }
+            } catch (e) {
+                message.channel.send(e);
             }
-            else if(message.content.startsWith('/sleepMaria')){
-                await character.wakeOrSleep(false, "Maria");
-                message.channel.send("Good night to you too!")
-            }
-            else if(message.content.startsWith('/wakeMaria')){
-                await character.wakeOrSleep(true, "Maria");
-                message.channel.send("Good morning!");
-            }
+
         }
-        if(message.content.startsWith('/trickOrTreat Maria')){
-            const user = message.author.id;
-            message.channel.send("Ay! It looks like all of the candy has been pillaged! Next time, yes?")
+        if (message.content.startsWith('/updateMaria')) {
+            const request = message.content.substring(13);
+            await character.updateSpecialMessage('Maria', request);
+            message.channel.send('Ay! You are the captain now, yes? All clear!');
         }
     });
-    
+
     client.login(process.env.MARIA_TOKEN);
 }
 
